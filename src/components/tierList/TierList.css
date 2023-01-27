@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#tier-list {
+    @apply bg-zinc-800 max-w-[1500px] min-w-[80%] min-h-[480px] rounded-lg overflow-hidden 
+}
+
+.wrappler {
+    @apply flex min-h-[160px] border-y-[.5px] border-zinc-700;
+}
+.titleContainer {
+    @apply overflow-hidden w-28 lg:shrink-0 md:w-[224px] text-zinc-100 bg-zinc-500 flex items-center justify-center text-3xl font-semibold p-3;
+}
+
+.imgsContainer {
+    @apply flex flex-1 flex-wrap h-full min-h-[160px] ;
+}
