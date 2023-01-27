@@ -3,19 +3,28 @@ import * as Popover from "@radix-ui/react-popover";
 import { Check, DotsThreeOutline, X } from "phosphor-react";
 import { useState } from "react";
 
+const squareColor = [
+  "#ec4899",
+  "#ef4444",
+  "#f97316",
+  "#eab308",
+  "#84cc16",
+  "#22c55e",
+  "#0ea5e9",
+  "#3b82f6",
+  "#8b5cf6",
+  "#a855f7",
+];
+
 export function PopoverEdit({ setbgColor }) {
-  const [squareColor, setSquareColor] = useState([
-    "#ec4899",
-    "#ef4444",
-    "#f97316",
-    "#eab308",
-    "#84cc16",
-    "#22c55e",
-    "#0ea5e9",
-    "#3b82f6",
-    "#8b5cf6",
-    "#a855f7",
-  ]);
+  const [hex, setHex] = useState('');
+
+  function changeHEXBackgroundColor() {
+    if(hex !== '') {
+      setbgColor(hex)
+      
+    }
+  }
 
   return (
     <div className="min-h-[160px] w-12 relative p-1">
@@ -34,7 +43,11 @@ export function PopoverEdit({ setbgColor }) {
             <div className="flex flex-col justify-center">
               <div className="w-full rounded-md grid grid-cols-8 gap-2 bg-zinc-800 p-2 mt-5 mb-3">
                 {squareColor.map((square, i) => (
-                  <SquareColor key={`${square} + ${i}`} bgColor={square} setbgColor={setbgColor}/>
+                  <SquareColor
+                    key={`${square} + ${i}`}
+                    bgColor={square}
+                    setbgColor={setbgColor}
+                  />
                 ))}
               </div>
 
@@ -46,11 +59,13 @@ export function PopoverEdit({ setbgColor }) {
                   type="text"
                   id="Hxdecimal"
                   placeholder="#fb923c"
+                  value={hex}
+                  onChange={(e) => setHex(e.target.value)}
                   className="w-full pl-2 bg-zinc-700 rounded-md h-8 text-slate-100 flex items-center justify-center outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-900 mb-2"
                 />
               </div>
 
-              <button className="bg-orange-600 flex items-center justify-center mt-3 h-8 rounded-lg outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-900">
+              <button onClick={changeHEXBackgroundColor} className="bg-orange-600 flex items-center justify-center mt-3 h-8 rounded-lg outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-900">
                 <Check size={25} className="text-zinc-100" />
               </button>
             </div>
@@ -62,9 +77,8 @@ export function PopoverEdit({ setbgColor }) {
 }
 
 export function SquareColor({ bgColor, setbgColor }) {
-
   function changeBackgroundColor(color) {
-    setbgColor(color)
+    setbgColor(color);
   }
 
   return (
