@@ -2,6 +2,10 @@ import * as Popover from "@radix-ui/react-popover";
 
 import { Check, DotsThreeOutline, X } from "phosphor-react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+//Reducers
+import { Delete_Line } from "../../features/reduxTierListLine";
 
 const squareColor = [
   "#ec4899",
@@ -16,14 +20,20 @@ const squareColor = [
   "#a855f7",
 ];
 
-export function PopoverEdit({ setbgColor }) {
-  const [hex, setHex] = useState('');
+export function PopoverEdit({ id, setbgColor }) {
+  const [hex, setHex] = useState("");
+  const dispatch = useDispatch();
 
-  function changeHEXBackgroundColor() {
-    if(hex !== '') {
-      setbgColor(hex)
-      
+  function changeHEXBackgroundColor(e) {
+    e.preventDefault()
+
+    if (hex !== "") {
+      setbgColor(hex);
     }
+  }
+
+  function deleteLine() {
+    dispatch(Delete_Line({ id: id }));
   }
 
   return (
@@ -51,23 +61,36 @@ export function PopoverEdit({ setbgColor }) {
                 ))}
               </div>
 
-              <div>
-                <label htmlFor="Hxdecimal" className="text-zinc-400">
-                  HXDECIMAL
+              <form onSubmit={changeHEXBackgroundColor}>
+                <label htmlFor="Hxdecimal">
+                  <span className="text-zinc-400">HEXADECIMAL</span>
+                  <div className="w-full h-8 flex items-center mb-2 bg-zinc-700 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-1 focus-within:ring-offset-zinc-900">
+                    <input
+                      type="text"
+                      id="Hxdecimal"
+                      placeholder="#fb923c"
+                      value={hex}
+                      onChange={(e) => setHex(e.target.value)}
+                      className="w-full pl-2 h-full bg-transparent text-slate-100 outline-none"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-zinc-800 hover:bg-zinc-800/70 p-1 flex items-center justify-center h-full outline-none focus:bg-zinc-800/50"
+                    >
+                      <Check size={25} className="text-zinc-100" />
+                    </button>
+                  </div>
                 </label>
-                <input
-                  type="text"
-                  id="Hxdecimal"
-                  placeholder="#fb923c"
-                  value={hex}
-                  onChange={(e) => setHex(e.target.value)}
-                  className="w-full pl-2 bg-zinc-700 rounded-md h-8 text-slate-100 flex items-center justify-center outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-900 mb-2"
-                />
-              </div>
+              </form>
 
-              <button onClick={changeHEXBackgroundColor} className="bg-orange-600 flex items-center justify-center mt-3 h-8 rounded-lg outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-900">
-                <Check size={25} className="text-zinc-100" />
-              </button>
+              <div>
+                <button
+                  onClick={deleteLine}
+                  className="w-full font-semibold bg-red-600 hover:bg-red-600/80 flex items-center justify-center mt-3 h-8 rounded-lg outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-zinc-900"
+                >
+                  Excluir linha
+                </button>
+              </div>
             </div>
           </Popover.Content>
         </Popover.Portal>

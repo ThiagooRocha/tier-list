@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 import { PopoverEdit } from "./PopoverEdit";
 
-export function TierListLine({bgColor}) {
+export function TierListLine({id, bgColor}) {
 
   const [backgroundColor, setBackgroundColor] = useState(bgColor)
 
   return (
-    <div className="wrappler">
+    <div className="wrappler" >
       <div
         className="titleContainer"
         style={{ background: `${backgroundColor}` }}
@@ -18,7 +18,7 @@ export function TierListLine({bgColor}) {
 
       <div className="imgsContainer"></div>
 
-      <PopoverEdit setbgColor={setBackgroundColor} />
+      <PopoverEdit id={id} setbgColor={setBackgroundColor} />
     </div>
   );
 }

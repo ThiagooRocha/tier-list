@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #tier-list {
-    @apply bg-zinc-800 max-w-[1500px] min-w-[80%] min-h-[480px] rounded-lg overflow-hidden 
+    @apply bg-zinc-800 max-w-[1500px] min-w-[80%] rounded-lg overflow-hidden 
 }
 
 .wrappler {
