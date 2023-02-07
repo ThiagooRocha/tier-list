@@ -13,7 +13,6 @@ export function FormAddItem({ imgs, setImgs }) {
     if (inputUrl !== "") {
       try {
         new URL(inputUrl);
-        setInputImgs((prev) => [...prev, inputUrl])
         setImgs((prev) => [...prev, inputUrl])
       } catch (error) {
         alert("URL inválida");

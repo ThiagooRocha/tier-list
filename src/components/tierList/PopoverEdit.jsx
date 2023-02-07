@@ -37,7 +37,7 @@ export function PopoverEdit({ id, setbgColor }) {
   }
 
   return (
-    <div className="min-h-[160px] w-12 relative p-1">
+    <div className="w-12 h-full relative p-1">
       <Popover.Root>
         <Popover.Trigger className="bg-zinc-900 w-full flex items-center justify-center rounded-lg outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-700">
           <DotsThreeOutline size={25} className={"text-zinc-100"} />

@@ -3,16 +3,15 @@
 @tailwind utilities;
 
 #tier-list {
-    @apply bg-zinc-800 max-w-[1500px] min-w-[80%] rounded-lg overflow-hidden 
+    @apply bg-zinc-800 max-w-[1500px] w-[80%] rounded-lg overflow-hidden mt-28 mx-10
 }
 
 .wrappler {
-    @apply flex min-h-[160px] border-y-[.5px] border-zinc-700;
+    @apply flex flex-row md:min-h-[128px] border-y-[.5px] border-zinc-700;
 }
 .titleContainer {
     @apply overflow-hidden w-28 lg:shrink-0 md:w-[224px] text-zinc-100 bg-zinc-500 flex items-center justify-center text-3xl font-semibold p-3;
 }
-
 .imgsContainer {
-    @apply flex flex-1 flex-wrap h-full min-h-[160px] ;
+    @apply flex-1 overflow-x-scroll;
 }
