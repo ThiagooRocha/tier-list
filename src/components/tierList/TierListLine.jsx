@@ -8,6 +8,13 @@ import { PopoverEdit } from "./PopoverEdit";
 
 export function TierListLine({ id, bgColor, imgs }) {
   const [backgroundColor, setBackgroundColor] = useState(bgColor);
+  const [directionColumn, setDirectionColumn] = useState(true);
+
+  window.onresize = function () {
+    if (document.documentElement.clientWidth < 647) {
+      setDirectionColumn('vertical');
+    }
+  };
 
   return (
     <div className="wrappler">
@@ -30,7 +37,7 @@ export function TierListLine({ id, bgColor, imgs }) {
               <Draggable key={img.id} draggableId={img.id} index={index}>
                 {(provided, snapshot) => (
                   <div
-                    className="inline-block w-20 h-20 md:w-32 md:h-32"
+                    className="flex-shrink-0 w-full h-40 sm:w-32 sm:h-32"
                     ref={provided.innerRef}
                     {...provided.dragHandleProps}
                     {...provided.draggableProps}
@@ -48,6 +55,7 @@ export function TierListLine({ id, bgColor, imgs }) {
           </div>
         )}
       </Droppable>
+
       <PopoverEdit id={id} setbgColor={setBackgroundColor} />
     </div>
   );

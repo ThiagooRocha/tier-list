@@ -5,7 +5,7 @@ export function ListItems() {
   const [imgs, setImgs] = useState([]);
 
   return (
-    <div className="bg-zinc-800 rounded-md max-w-[1500px] w-[80%] max-h-[320px] overflow-auto flex gap-2">
+    <div className="bg-zinc-300 rounded-md w-full max-h-[320px] overflow-auto flex gap-2">
       <div className="w-36 p-3">
         <ModalAddImage imgs={imgs} setImgs={setImgs} />
       </div>

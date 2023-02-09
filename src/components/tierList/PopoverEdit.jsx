@@ -8,16 +8,23 @@ import { useDispatch } from "react-redux";
 import { Delete_Line } from "../../features/reduxTierListLine";
 
 const squareColor = [
-  "#ec4899",
-  "#ef4444",
-  "#f97316",
-  "#eab308",
-  "#84cc16",
-  "#22c55e",
-  "#0ea5e9",
-  "#3b82f6",
-  "#8b5cf6",
-  "#a855f7",
+  "#404040",
+  "#52525b",
+  
+  "#0f766e",
+  "#0d9488",
+  
+  "#1e3a8a",
+  "#1d4ed8",
+  
+  "#5b21b6",
+  "#7c3aed",
+  
+  "#e11d48",
+  "#be123c",
+
+  "#b91c1c",
+  "#dc2626",
 ];
 
 export function PopoverEdit({ id, setbgColor }) {
@@ -37,21 +44,18 @@ export function PopoverEdit({ id, setbgColor }) {
   }
 
   return (
-    <div className="w-12 h-full relative p-1">
+    <div className="absolute right-0 w-12 h-full p-1">
       <Popover.Root>
-        <Popover.Trigger className="bg-zinc-900 w-full flex items-center justify-center rounded-lg outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-700">
-          <DotsThreeOutline size={25} className={"text-zinc-100"} />
+        <Popover.Trigger className="bg-zinc-400 w-full flex items-center justify-center rounded-lg outline-none hover:ring-2 hover:ring-zinc-400 hover:ring-offset-1 hover:ring-offset-zinc-300 focus:ring-2 focus:ring-zinc-400 focus:ring-offset-1 focus:ring-offset-zinc-300">
+          <DotsThreeOutline size={25} className="text-zinc-50" />
         </Popover.Trigger>
         <Popover.Anchor />
         <Popover.Portal>
-          <Popover.Content className="bg-zinc-900 w-56 rounded-lg p-3 mx-1">
-            <Popover.Close className="absolute right-2 top-1 rounded-md outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-zinc-800">
-              <X size={20} className="text-zinc-100" />
-            </Popover.Close>
-            <Popover.Arrow className="fill-zinc-900" />
+          <Popover.Content className="bg-zinc-200 w-56 rounded-lg p-3 mx-1">
+            <Popover.Arrow className="fill-zinc-200" />
 
             <div className="flex flex-col justify-center">
-              <div className="w-full rounded-md grid grid-cols-8 gap-2 bg-zinc-800 p-2 mt-5 mb-3">
+              <div className="w-full rounded-md grid grid-cols-8 gap-2 bg-zinc-300 p-2 mt-5 mb-3">
                 {squareColor.map((square, i) => (
                   <SquareColor
                     key={`${square} + ${i}`}
@@ -63,21 +67,21 @@ export function PopoverEdit({ id, setbgColor }) {
 
               <form onSubmit={changeHEXBackgroundColor}>
                 <label htmlFor="Hxdecimal">
-                  <span className="text-zinc-400">HEXADECIMAL</span>
-                  <div className="w-full h-8 flex items-center mb-2 bg-zinc-700 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-1 focus-within:ring-offset-zinc-900">
+                  <span className="text-zinc-500">HEXADECIMAL</span>
+                  <div className="w-full h-8 flex items-center mb-2 bg-zinc-300 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-zinc-500 focus-within:ring-offset-1 focus-within:ring-offset-zinc-900">
                     <input
                       type="text"
                       id="Hxdecimal"
                       placeholder="#fb923c"
                       value={hex}
                       onChange={(e) => setHex(e.target.value)}
-                      className="w-full pl-2 h-full bg-transparent text-slate-100 outline-none"
+                      className="w-full pl-2 h-full bg-transparent text-slate-800 outline-none"
                     />
                     <button
                       type="submit"
-                      className="bg-zinc-800 hover:bg-zinc-800/70 p-1 flex items-center justify-center h-full outline-none focus:bg-zinc-800/50"
+                      className="bg-zinc-300 hover:bg-zinc-400/70 p-1 flex items-center justify-center h-full outline-none focus:bg-zinc-400/70"
                     >
-                      <Check size={25} className="text-zinc-100" />
+                      <Check size={25} className="text-zinc-800" />
                     </button>
                   </div>
                 </label>
@@ -86,7 +90,7 @@ export function PopoverEdit({ id, setbgColor }) {
               <div>
                 <button
                   onClick={deleteLine}
-                  className="w-full font-semibold bg-red-600 hover:bg-red-600/80 flex items-center justify-center mt-3 h-8 rounded-lg outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-zinc-900"
+                  className="w-full h-10 text-zinc-100 font-semibold bg-red-600 hover:bg-red-600/80 flex items-center justify-center mt-3 rounded-lg outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-zinc-900"
                 >
                   Excluir linha
                 </button>
@@ -108,7 +112,7 @@ export function SquareColor({ bgColor, setbgColor }) {
     <div
       onClick={() => changeBackgroundColor(bgColor)}
       tabIndex={0}
-      className="border-2 border-zinc-400 w-4 h-4 cursor-pointer"
+      className="border-2 border-zinc-400 rounded-full w-5 h-5 cursor-pointer"
       style={{ background: `${bgColor}` }}
     />
   );

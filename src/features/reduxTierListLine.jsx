@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   {
     id: "line-1",
-    bgColor: "#ea580c",
+    bgColor: "#1d4ed8",
     items: [{
       id: "img-0",
       src: "https://i.pinimg.com/736x/79/eb/67/79eb67153a759d71c9fa1dc65da901ab.jpg"
@@ -31,7 +31,7 @@ const initialState = [
   },
   {
     id: "line-2",
-    bgColor: "#f97316",
+    bgColor: "#2563eb",
     items: [
       {
         id: "img-23",
@@ -43,7 +43,7 @@ const initialState = [
       },
     ],
   },
-  { id: "line-3", bgColor: "#fb923c", items: [] },
+  { id: "line-3", bgColor: "#1e3a8a", items: [] },
 ];
 
 export const TierListLine = createSlice({
@@ -53,7 +53,7 @@ export const TierListLine = createSlice({
     New_Line: (state) => {
       const newLine = {
         id: `line-${Math.random().toString()}`,
-        bgColor: "#ea580c",
+        bgColor: "#52525b",
         items: [],
       };
       return [...state, newLine];

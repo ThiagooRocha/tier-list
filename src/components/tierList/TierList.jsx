@@ -53,9 +53,9 @@ export function TierList() {
 
       <button
         onClick={createNewLine}
-        className="border border-x-2 border-y-2 flex items-center justify-center border-orange-500 max-w-[1500px] w-[80%] h-24 rounded-lg cursor-pointer outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 focus:ring-offset-transparent"
+        className="max-w-[1500px] w-[85%] md:w-[50%] ml-auto h-12 text-zinc-400 font-semibold border-2 border-zinc-300 hover:text-zinc-700 hover:bg-zinc-300 hover:ring-2 hover:ring-zinc-300 hover:ring-offset-1 rounded-lg cursor-pointer outline-none focus:bg-zinc-300 focus:text-zinc-700 focus:ring-2 focus:ring-zinc-300 focus:ring-offset-1 focus:ring-offset-zinc-100"
       >
-        Adicionar Nova Linha
+       ✨ Adicionar nova linha
       </button>
     </>
   );

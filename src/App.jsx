@@ -5,7 +5,7 @@ import { TierList } from "./components/tierList/TierList";
 
 export function App() {
   return (
-      <div className="flex flex-col items-center justify-center gap-10 mb-20">   
+      <div className="max-w-[1500px] w-[80%] mx-auto flex flex-col  gap-10 mb-20">   
         <TierList />
         <ListItems /> 
       </div>

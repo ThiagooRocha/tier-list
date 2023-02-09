@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 #tier-list {
-    @apply bg-zinc-800 max-w-[1500px] w-[80%] rounded-lg overflow-hidden mt-28 mx-10
+  @apply w-full mt-28;
 }
-
 .wrappler {
-    @apply flex flex-row md:min-h-[128px] border-y-[.5px] border-zinc-700;
+  @apply bg-transparent flex flex-row min-h-[160px] rounded-lg sm:min-h-[128px] relative mb-6 transition-all shadow-md;
 }
 .titleContainer {
-    @apply overflow-hidden w-28 lg:shrink-0 md:w-[224px] text-zinc-100 bg-zinc-500 flex items-center justify-center text-3xl font-semibold p-3;
+  @apply overflow-hidden w-28 lg:shrink-0 md:w-[224px] rounded-bl-lg rounded-tl-lg text-zinc-100 bg-zinc-500 flex items-center justify-center text-3xl font-semibold p-3;
 }
 .imgsContainer {
-    @apply flex-1 overflow-x-scroll;
+  @apply bg-zinc-300 flex flex-1 flex-col max-h-96 rounded-br-lg rounded-tr-lg overflow-y-scroll overflow-hidden sm:overflow-hidden sm:flex-row sm:overflow-x-scroll;
+}
+.imgsContainer::-webkit-scrollbar {
+  display: none;
 }
