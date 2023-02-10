@@ -27,7 +27,7 @@ export function TierListLine({ id, bgColor, imgs }) {
       </div>
 
       <Droppable droppableId={id} direction="horizontal">
-        {(provided, snapshot) => (
+        {(provided) => (
           <div
             className="imgsContainer"
             ref={provided.innerRef}
@@ -35,7 +35,7 @@ export function TierListLine({ id, bgColor, imgs }) {
           >
             {imgs.map((img, index) => (
               <Draggable key={img.id} draggableId={img.id} index={index}>
-                {(provided, snapshot) => (
+                {(provided) => (
                   <div
                     className="flex-shrink-0 w-full h-40 sm:w-32 sm:h-32"
                     ref={provided.innerRef}

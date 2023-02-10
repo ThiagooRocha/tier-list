@@ -1,10 +1,9 @@
 import * as Popover from "@radix-ui/react-popover";
-
-import { Check, DotsThreeOutline, X } from "phosphor-react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { Check, DotsThreeOutline, X } from "phosphor-react";
 
 //Reducers
+import { useDispatch } from "react-redux";
 import { Delete_Line } from "../../features/reduxTierListLine";
 
 const squareColor = [
