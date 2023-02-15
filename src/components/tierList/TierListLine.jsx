@@ -6,7 +6,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 //Components
 import { PopoverEdit } from "./PopoverEdit";
 
-export function TierListLine({ id, bgColor, imgs }) {
+export function TierListLine({ id, bgColor, title, imgs }) {
   const [backgroundColor, setBackgroundColor] = useState(bgColor);
   const [directionColumn, setDirectionColumn] = useState(true);
 
@@ -23,7 +23,7 @@ export function TierListLine({ id, bgColor, imgs }) {
         style={{ background: `${backgroundColor}` }}
         spellCheck="false"
       >
-        Title
+        <h2>{title}</h2>
       </div>
 
       <Droppable droppableId={id} direction="horizontal">

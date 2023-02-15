@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 //Components
+import { Header } from "./components/header/Header"
 import { ListItems } from "./components/listItems/ListItems";
 import { TierList } from "./components/tierList/TierList";
 
@@ -27,11 +28,14 @@ export function App() {
   }
 
   return (
-    <div className="max-w-[1500px] w-[80%] mx-auto flex flex-col  gap-10 mb-20">
+    <>
+      <Header />
+      <div className="max-w-[1500px] w-[80%] mx-auto flex flex-col  gap-10 mb-20">
       <DragDropContext onDragEnd={onDragEnd}>
         <TierList />
         <ListItems />
       </DragDropContext>
-    </div>
+      </div>
+    </>
   );
 }

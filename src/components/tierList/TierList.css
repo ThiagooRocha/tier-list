@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 #tier-list {
-  @apply w-full mt-28;
+  @apply w-full mt-14;
 }
 .wrappler {
-  @apply bg-transparent flex flex-row min-h-[160px] rounded-lg sm:min-h-[128px] relative mb-6 transition-all shadow-md;
+  @apply bg-transparent flex flex-row min-h-[160px] rounded-lg sm:min-h-[128px] relative mb-4 transition-all shadow-md;
 }
 .titleContainer {
-  @apply overflow-hidden w-28 lg:shrink-0 md:w-[224px] rounded-bl-lg rounded-tl-lg text-zinc-100 bg-zinc-500 flex items-center justify-center text-3xl font-semibold p-3;
+  @apply overflow-x-hidden text-xl p-3 w-28 sm:max-h-[160px] lg:shrink-0 md:w-[224px] rounded-bl-lg rounded-tl-lg text-zinc-100 bg-zinc-500 flex items-center justify-center sm:text-3xl font-semibold;
 }
 .imgsContainer {
-  @apply bg-zinc-300 flex flex-1 flex-col max-h-96 rounded-br-lg rounded-tr-lg overflow-y-scroll overflow-hidden sm:overflow-hidden sm:flex-row sm:overflow-x-scroll;
+  @apply bg-zinc-300 dark:bg-zinc-700 flex flex-1 flex-col max-h-96 rounded-br-lg rounded-tr-lg overflow-y-scroll overflow-hidden sm:overflow-hidden sm:flex-row sm:overflow-x-scroll;
 }
 .imgsContainer::-webkit-scrollbar {
   display: none;

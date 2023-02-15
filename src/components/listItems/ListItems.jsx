@@ -13,7 +13,7 @@ export function ListItems() {
   const listItems = useSelector(state => state.listItems)
 
   return (
-    <div className="bg-zinc-300 rounded-md w-full max-h-[320px] overflow-auto flex gap-2">
+    <div className="bg-zinc-300 dark:bg-zinc-700 rounded-md w-full max-h-[320px] overflow-auto flex gap-2">
       <div className="w-36 p-3">
         <ModalAddImage />
       </div>

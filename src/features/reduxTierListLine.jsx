@@ -4,6 +4,7 @@ const initialState = [
   {
     id: "line-1",
     bgColor: "#1d4ed8",
+    title: "Title",
     items: [
       {
         id: "img-1",
@@ -14,6 +15,7 @@ const initialState = [
   {
     id: "line-2",
     bgColor: "#2563eb",
+    title: "Title",
     items: [
       {
         id: "img-1231",
@@ -21,7 +23,7 @@ const initialState = [
       },
     ],
   },
-  { id: "line-3", bgColor: "#1e3a8a", items: [] },
+  { id: "line-3", bgColor: "#1e3a8a", title: "Title", items: [] },
 ];
 
 export const TierListLineSlice = createSlice({
@@ -32,9 +34,21 @@ export const TierListLineSlice = createSlice({
       const newLine = {
         id: `line-${Math.random().toString()}`,
         bgColor: "#52525b",
+        title: "Title",
         items: [],
       };
       return [...state, newLine];
+    },
+    Change_Title: (state, action) => {
+      const { id, title } = action.payload;
+
+      state.map((line) => {
+        if (line.id === id) {
+          line.title = title;
+        }
+      });
+
+      return state
     },
     Delete_Line: (state, action) => {
       return state.filter((line) => line.id !== action.payload.id);
@@ -49,7 +63,10 @@ export const TierListLineSlice = createSlice({
       let sourceIndex = 0;
       let destinationColumnIndex = 0;
 
-      if (!result.destination || result.destination.droppableId === 'listImgs') {
+      if (
+        !result.destination ||
+        result.destination.droppableId === "listImgs"
+      ) {
         return;
       }
 
@@ -131,6 +148,7 @@ export const TierListLineSlice = createSlice({
 
 export const {
   New_Line,
+  Change_Title,
   Delete_Line,
   Drag_Item_In_Column,
   Drag_Item_To_Column,

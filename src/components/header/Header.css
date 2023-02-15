@@ -1,0 +1,19 @@
+.iconTheme {
+    @apply absolute top-2/4 -translate-y-2/4 text-zinc-400 bg-zinc-200 hover:text-zinc-700 dark:hover:text-zinc-100 dark:bg-zinc-800 rounded-full p-1;
+    transition: all;
+    animation: icon-moviment-to-left .2s ease-in-out forwards;  
+}
+.iconTheme.animate {
+    transition: all;
+    animation: icon-moviment-to-rigth .2s ease-in-out forwards;
+}
+
+@keyframes icon-moviment-to-rigth {
+    0% {transform: translate(0px, -50%);}
+    100% {transform: translate(100%, -50%);}
+}
+
+@keyframes icon-moviment-to-left {
+    0% {transform: translate(100%, -50%);}
+    100% {transform: translate(-14%, -50%);}
+}
