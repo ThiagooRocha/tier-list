@@ -1,4 +1,3 @@
-
 //Components
 import { ModalAddImage } from "./ModalAddImage";
 
@@ -9,8 +8,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 
 export function ListItems() {
-
-  const listItems = useSelector(state => state.listItems)
+  const listItems = useSelector((state) => state.listItems);
 
   return (
     <div className="bg-zinc-300 dark:bg-zinc-700 rounded-md w-full max-h-[320px] overflow-auto flex gap-2">
@@ -18,40 +16,36 @@ export function ListItems() {
         <ModalAddImage />
       </div>
 
-        <Droppable  droppableId={"listImgs"}>
-          {(provided) => (
-            <div
-              className="w-full flex flex-wrap"
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              {listItems &&
-                listItems.map((img, index) => (
-                  <Draggable
-                    key={img.id}
-                    draggableId={img.id}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <div
-                        className="flex-shrink-0 w-full h-40 sm:w-32 sm:h-32"
-                        ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-                        {...provided.draggableProps}
-                        style={{
-                          backgroundImage: `url(${img.src})`,
-                          backgroundPosition: "center",
-                          backgroundSize: "cover",
-                          ...provided.draggableProps.style,
-                        }}
-                      />
-                    )}
-                  </Draggable>
-                ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
+      <Droppable droppableId={"listImgs"}>
+        {(provided) => (
+          <div
+            className="w-full flex flex-wrap p-3"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {listItems &&
+              listItems.map((img, index) => (
+                <Draggable key={img.id} draggableId={img.id} index={index}>
+                  {(provided) => (
+                    <div
+                      className="flex-shrink-0 w-full h-20 sm:w-32 sm:h-32"
+                      ref={provided.innerRef}
+                      {...provided.dragHandleProps}
+                      {...provided.draggableProps}
+                      style={{
+                        backgroundImage: `url(${img.src})`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        ...provided.draggableProps.style,
+                      }}
+                    />
+                  )}
+                </Draggable>
+              ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </div>
   );
 }

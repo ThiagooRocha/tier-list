@@ -1,28 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
-  {
-    id: "line-1",
-    bgColor: "#1d4ed8",
-    title: "Title",
-    items: [
-      {
-        id: "img-1",
-        src: "https://i.pinimg.com/736x/79/eb/67/79eb67153a759d71c9fa1dc65da901ab.jpg",
-      },
-    ],
-  },
-  {
-    id: "line-2",
-    bgColor: "#2563eb",
-    title: "Title",
-    items: [
-      {
-        id: "img-1231",
-        src: "https://cdn.ome.lt/Oecsq_4-nk1A0e5yVmgU6C-UmXI=/770x0/smart/uploads/conteudo/fotos/vagabond-47122.jpg",
-      },
-    ],
-  },
+  { id: "line-1", bgColor: "#1d4ed8", title: "Title", items: [] },
+  { id: "line-2", bgColor: "#2563eb", title: "Title", items: [] },
   { id: "line-3", bgColor: "#1e3a8a", title: "Title", items: [] },
 ];
 
@@ -48,7 +28,7 @@ export const TierListLineSlice = createSlice({
         }
       });
 
-      return state
+      return state;
     },
     Delete_Line: (state, action) => {
       return state.filter((line) => line.id !== action.payload.id);
